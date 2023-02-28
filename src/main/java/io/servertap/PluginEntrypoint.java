@@ -11,6 +11,7 @@ import io.servertap.api.v1.websockets.WebsocketHandler;
 import io.servertap.metrics.Metrics;
 import io.servertap.utils.EconomyWrapper;
 import io.servertap.utils.GsonJsonMapper;
+import io.servertap.utils.storage.PlayerData;
 import io.swagger.v3.oas.models.info.Info;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
@@ -176,6 +177,7 @@ public class PluginEntrypoint extends JavaPlugin {
                 config.registerPlugin(new OpenApiPlugin(getOpenApiOptions()));
             });
 
+            PlayerData.initialize();
         }
 
         // Don't create a new instance if the plugin is reloaded
